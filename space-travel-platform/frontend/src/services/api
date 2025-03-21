@@ -1,0 +1,41 @@
+// This file contains API service functions for making requests to the backend.
+
+import axios from 'axios';
+
+const API_BASE_URL = 'https://api.space-travel-platform.com'; // Replace with your actual API base URL
+
+export const fetchTrips = async () => {
+    try {
+        const response = await axios.get(`${API_BASE_URL}/trips`);
+        return response.data;
+    } catch (error) {
+        throw new Error('Error fetching trips: ' + error.message);
+    }
+};
+
+export const bookTrip = async (tripDetails) => {
+    try {
+        const response = await axios.post(`${API_BASE_URL}/book`, tripDetails);
+        return response.data;
+    } catch (error) {
+        throw new Error('Error booking trip: ' + error.message);
+    }
+};
+
+export const fetchAccommodations = async () => {
+    try {
+        const response = await axios.get(`${API_BASE_URL}/accommodations`);
+        return response.data;
+    } catch (error) {
+        throw new Error('Error fetching accommodations: ' + error.message);
+    }
+};
+
+export const fetchUserBookings = async (userId) => {
+    try {
+        const response = await axios.get(`${API_BASE_URL}/users/${userId}/bookings`);
+        return response.data;
+    } catch (error) {
+        throw new Error('Error fetching user bookings: ' + error.message);
+    }
+};

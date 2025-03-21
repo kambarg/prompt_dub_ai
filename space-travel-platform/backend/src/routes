@@ -1,0 +1,23 @@
+Sure, here's the contents for the file: /space-travel-platform/space-travel-platform/backend/src/routes/index.ts
+
+import { Router } from 'express';
+import { bookingController } from '../controllers/bookingController';
+import { hotelController } from '../controllers/hotelController';
+import { userController } from '../controllers/userController';
+
+const router = Router();
+
+// Booking routes
+router.post('/bookings', bookingController.createBooking);
+router.get('/bookings/:id', bookingController.getBooking);
+router.get('/bookings', bookingController.getAllBookings);
+
+// Hotel routes
+router.get('/hotels', hotelController.getAllHotels);
+router.get('/hotels/:id', hotelController.getHotelById);
+
+// User routes
+router.post('/users', userController.createUser);
+router.get('/users/:id', userController.getUser);
+
+export default router;

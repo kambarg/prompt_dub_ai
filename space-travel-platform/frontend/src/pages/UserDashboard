@@ -1,0 +1,24 @@
+// UserDashboard component for managing user bookings and providing travel tips
+
+import React from 'react';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../store';
+import BookingList from '../../components/Dashboard/BookingList';
+import TravelTips from '../../components/Dashboard/TravelTips';
+import CountdownTimer from '../../components/Dashboard/CountdownTimer';
+import './UserDashboard.css';
+
+const UserDashboard: React.FC = () => {
+    const user = useSelector((state: RootState) => state.user);
+
+    return (
+        <div className="user-dashboard">
+            <h1>Welcome, {user.name}!</h1>
+            <CountdownTimer launchDate={user.launchDate} />
+            <BookingList bookings={user.bookings} />
+            <TravelTips />
+        </div>
+    );
+};
+
+export default UserDashboard;

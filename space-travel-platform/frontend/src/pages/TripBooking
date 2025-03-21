@@ -1,0 +1,58 @@
+import React, { useState } from 'react';
+
+const TripBooking = () => {
+    const [departureDate, setDepartureDate] = useState('');
+    const [destination, setDestination] = useState('');
+    const [seatClass, setSeatClass] = useState('economy');
+
+    const handleBooking = () => {
+        // Logic for handling the booking process
+        console.log('Booking details:', { departureDate, destination, seatClass });
+    };
+
+    return (
+        <div className="trip-booking">
+            <h1>Book Your Space Trip</h1>
+            <form onSubmit={(e) => { e.preventDefault(); handleBooking(); }}>
+                <div>
+                    <label htmlFor="departureDate">Departure Date:</label>
+                    <input
+                        type="date"
+                        id="departureDate"
+                        value={departureDate}
+                        onChange={(e) => setDepartureDate(e.target.value)}
+                        required
+                    />
+                </div>
+                <div>
+                    <label htmlFor="destination">Destination:</label>
+                    <select
+                        id="destination"
+                        value={destination}
+                        onChange={(e) => setDestination(e.target.value)}
+                        required
+                    >
+                        <option value="">Select a destination</option>
+                        <option value="moon">Moon</option>
+                        <option value="mars">Mars</option>
+                    </select>
+                </div>
+                <div>
+                    <label htmlFor="seatClass">Seat Class:</label>
+                    <select
+                        id="seatClass"
+                        value={seatClass}
+                        onChange={(e) => setSeatClass(e.target.value)}
+                    >
+                        <option value="economy">Economy</option>
+                        <option value="luxury">Luxury</option>
+                        <option value="vip">VIP Zero-Gravity</option>
+                    </select>
+                </div>
+                <button type="submit">Book Trip</button>
+            </form>
+        </div>
+    );
+};
+
+export default TripBooking;

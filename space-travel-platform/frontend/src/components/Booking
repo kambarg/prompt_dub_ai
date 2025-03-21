@@ -1,0 +1,56 @@
+import React, { useState } from 'react';
+
+const Booking: React.FC = () => {
+    const [departureDate, setDepartureDate] = useState('');
+    const [destination, setDestination] = useState('');
+    const [seatClass, setSeatClass] = useState('economy');
+
+    const handleBooking = () => {
+        // Logic for handling booking
+        console.log(`Booking trip to ${destination} on ${departureDate} in ${seatClass} class.`);
+    };
+
+    return (
+        <div className="booking-container">
+            <h2>Book Your Space Trip</h2>
+            <form onSubmit={(e) => { e.preventDefault(); handleBooking(); }}>
+                <div>
+                    <label htmlFor="departure-date">Departure Date:</label>
+                    <input 
+                        type="date" 
+                        id="departure-date" 
+                        value={departureDate} 
+                        onChange={(e) => setDepartureDate(e.target.value)} 
+                    />
+                </div>
+                <div>
+                    <label htmlFor="destination">Destination:</label>
+                    <select 
+                        id="destination" 
+                        value={destination} 
+                        onChange={(e) => setDestination(e.target.value)}
+                    >
+                        <option value="">Select Destination</option>
+                        <option value="moon">Moon</option>
+                        <option value="mars">Mars</option>
+                    </select>
+                </div>
+                <div>
+                    <label htmlFor="seat-class">Seat Class:</label>
+                    <select 
+                        id="seat-class" 
+                        value={seatClass} 
+                        onChange={(e) => setSeatClass(e.target.value)}
+                    >
+                        <option value="economy">Economy</option>
+                        <option value="luxury">Luxury</option>
+                        <option value="vip">VIP Zero-Gravity</option>
+                    </select>
+                </div>
+                <button type="submit">Book Now</button>
+            </form>
+        </div>
+    );
+};
+
+export default Booking;
