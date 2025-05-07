@@ -37,7 +37,7 @@ dubai-space-travel/
 ## Getting Started
 ```bash
 # Clone repository
-git clone https://github.com/yourusername/prompt_dub_ai.git
+git clone https://github.com/kambarg/prompt_dub_ai.git
 
 # Install dependencies
 cd prompt_dub_ai/dubai-space-travel/frontend && npm install
